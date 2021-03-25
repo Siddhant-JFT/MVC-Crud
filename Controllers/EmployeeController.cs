@@ -1,9 +1,5 @@
 ﻿using MVC_Crud.Models;
 using MVC_Crud.Service;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace MVC_Crud.Controllers
@@ -24,7 +20,7 @@ namespace MVC_Crud.Controllers
 
         public ActionResult AddEmployee()
         {
-           
+
             return View();
         }
 

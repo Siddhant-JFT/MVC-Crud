@@ -11,15 +11,20 @@ namespace MVC_Crud.Models
         public int Id { get; set; }
 
         [Required]
+        [Display(Name ="Employee Name")]
         public string EmpName { get; set; }
 
         [Required]
+        [Display(Name = "Employee Age")]
         public string EmpAge { get; set; }
 
         [Required]
+        [Display(Name = "Employee Email")]
         [DataType(DataType.EmailAddress)]
         public string EmailId { get; set; }
+        
         [Required]
+        [Display(Name = "Employee Phone")]
         public string MobileNo { get; set; }
     }
 
