@@ -6,7 +6,7 @@ using System.Web;
 
 namespace MVC_Crud.Models
 {
-    public class EmployeeModel
+    public class EmployeesModel
     {
         public int Id { get; set; }
 

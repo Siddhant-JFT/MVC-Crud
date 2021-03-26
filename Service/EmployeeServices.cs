@@ -14,9 +14,9 @@ namespace MVC_Crud.Service
         public string connection = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
         private SqlDataAdapter _adapter;
         private DataSet _ds;
-        public List<EmployeeModel> GetEmployeeList()
+        public List<EmployeesModel> GetEmployeeList()
         {
-            IList<EmployeeModel> getEmpList = new List<EmployeeModel>();
+            IList<EmployeesModel> getEmpList = new List<EmployeesModel>();
             _ds = new DataSet();
 
             using(SqlConnection con = new SqlConnection(connection))
@@ -32,7 +32,7 @@ namespace MVC_Crud.Service
                 {
                     for (int i = 0; i<_ds.Tables[0].Rows.Count; i++)
                     {
-                        EmployeeModel obj = new EmployeeModel();
+                        EmployeesModel obj = new EmployeesModel();
                         obj.Id = Convert.ToInt32(_ds.Tables[0].Rows[i]["Id"]);
                         obj.EmpName = Convert.ToString(_ds.Tables[0].Rows[i]["EmpName"]);
                         obj.EmpAge = Convert.ToString(_ds.Tables[0].Rows[i]["EmpAge"]);
@@ -43,10 +43,10 @@ namespace MVC_Crud.Service
                 }
             }
             
-            return (List<EmployeeModel>)getEmpList;  
+            return (List<EmployeesModel>)getEmpList;  
         }
 
-        public void InsertEmployee(EmployeeModel model)
+        public void InsertEmployee(EmployeesModel model)
         {
 
             using(SqlConnection con = new SqlConnection(connection))
@@ -64,9 +64,9 @@ namespace MVC_Crud.Service
             }
         }
 
-        public EmployeeModel GetEditById(int Id)
+        public EmployeesModel GetEditById(int Id)
         {
-            EmployeeModel model = new EmployeeModel();
+            EmployeesModel model = new EmployeesModel();
 
             using(SqlConnection con = new SqlConnection(connection))
             {
@@ -97,7 +97,7 @@ namespace MVC_Crud.Service
 
         }
 
-        public void UpdadteEmp(EmployeeModel model)
+        public void UpdadteEmp(EmployeesModel model)
         {
             using(SqlConnection con = new SqlConnection(connection))
             {

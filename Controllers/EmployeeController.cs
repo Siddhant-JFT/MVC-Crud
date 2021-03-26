@@ -6,7 +6,7 @@ namespace MVC_Crud.Controllers
 {
     public class EmployeeController : Controller
     {
-        // GET: Employee
+
         private EmployeeServices _empServices;
 
 
@@ -26,7 +26,7 @@ namespace MVC_Crud.Controllers
 
         [HttpPost]
 
-        public ActionResult AddEmployee(EmployeeModel model)
+        public ActionResult AddEmployee(EmployeesModel model)
         {
             _empServices = new EmployeeServices();
             _empServices.InsertEmployee(model);
@@ -44,7 +44,7 @@ namespace MVC_Crud.Controllers
             return View(model);
         }
         [HttpPost]
-        public ActionResult EditEmployee(EmployeeModel model)
+        public ActionResult EditEmployee(EmployeesModel model)
         {
             _empServices = new EmployeeServices();
             _empServices.UpdadteEmp(model);

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MVC_Crud.Models.EmployeeModel>
+﻿@model IEnumerable<MVC_Crud.Models.EmployeesModel>
 
 @{
     ViewBag.Title = "List";
@@ -40,8 +40,10 @@
             @Html.DisplayFor(modelItem => item.MobileNo)
         </td>
         <td>
-            @Html.ActionLink("Edit", "EditEmployee", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "DeleteEmployee", new { id=item.Id })
+            @Html.ActionLink("Edit", "EditEmployee", new { id=item.Id }) 
+        </td>
+        <td>
+            @Html.ActionLink("Delete", "DeleteEmployee", new { id = item.Id })
         </td>
     </tr>
 }

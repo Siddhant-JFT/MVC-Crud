@@ -26,7 +26,7 @@ namespace MVC_Crud.Controllers
                 System.Web.HttpContext.Current.Application.Lock();
                 System.Web.HttpContext.Current.Application["UserRole"] = user.username.ToString();
                 System.Web.HttpContext.Current.Application.UnLock();
-                return RedirectToAction("List","Employee");
+                return RedirectToAction("List","Roles");
             }
             else
             {
