@@ -6,7 +6,6 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
-
 namespace MVC_Crud.Service
 {
     public class EmployeeServices
@@ -18,7 +17,6 @@ namespace MVC_Crud.Service
         {
             IList<EmployeesModel> getEmpList = new List<EmployeesModel>();
             _ds = new DataSet();
-
             using(SqlConnection con = new SqlConnection(connection))
             {
                 con.Open();
@@ -27,7 +25,6 @@ namespace MVC_Crud.Service
                 cmd.Parameters.AddWithValue("@mode", "GetEmpList");
                 _adapter = new SqlDataAdapter(cmd);
                 _adapter.Fill(_ds);
-
                 if(_ds.Tables.Count > 0)
                 {
                     for (int i = 0; i<_ds.Tables[0].Rows.Count; i++)
@@ -42,13 +39,10 @@ namespace MVC_Crud.Service
                     }
                 }
             }
-            
             return (List<EmployeesModel>)getEmpList;  
         }
-
         public void InsertEmployee(EmployeesModel model)
         {
-
             using(SqlConnection con = new SqlConnection(connection))
             {
                 con.Open();
@@ -60,14 +54,11 @@ namespace MVC_Crud.Service
                 cmd.Parameters.AddWithValue("@EmpEmailId", model.EmailId);
                 cmd.Parameters.AddWithValue("@EmpMobileNo", model.MobileNo);
                 cmd.ExecuteNonQuery();
-
             }
         }
-
         public EmployeesModel GetEditById(int Id)
         {
             EmployeesModel model = new EmployeesModel();
-
             using(SqlConnection con = new SqlConnection(connection))
             {
                 con.Open();
@@ -85,18 +76,10 @@ namespace MVC_Crud.Service
                     model.EmpAge= Convert.ToString(_ds.Tables[0].Rows[0]["EmpAge"]);
                     model.EmailId = Convert.ToString(_ds.Tables[0].Rows[0]["EmailId"]);
                     model.MobileNo = Convert.ToString(_ds.Tables[0].Rows[0]["MobileNo"]);
-
                 }
-
-
             }
-
-
             return model;
-
-
         }
-
         public void UpdadteEmp(EmployeesModel model)
         {
             using(SqlConnection con = new SqlConnection(connection))
@@ -112,9 +95,7 @@ namespace MVC_Crud.Service
                 cmd.Parameters.AddWithValue("EmpId", model.Id);
                 cmd.ExecuteNonQuery();
             }      
-
         }
-
         public void DeleteEmployee(int Id)
         {
             using(SqlConnection con = new SqlConnection(connection))
@@ -125,11 +106,7 @@ namespace MVC_Crud.Service
                 cmd.Parameters.AddWithValue("@mode", "DeleteEmployee");
                 cmd.Parameters.AddWithValue("@EmpId", Id);
                 cmd.ExecuteNonQuery();
-
             }
-
         }
-
-
     }
 }

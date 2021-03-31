@@ -6,7 +6,6 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
-
 namespace MVC_Crud.Service
 {
     public class RoleServices
@@ -18,7 +17,6 @@ namespace MVC_Crud.Service
         {
             IList<RoleModel> getRoleList = new List<RoleModel>();
             _ds = new DataSet();
-
             using (SqlConnection con = new SqlConnection(connection))
             {
                 con.Open();
@@ -27,7 +25,6 @@ namespace MVC_Crud.Service
                 cmd.Parameters.AddWithValue("@mode", "GetRoleList");
                 _adapter = new SqlDataAdapter(cmd);
                 _adapter.Fill(_ds);
-
                 if (_ds.Tables.Count > 0)
                 {
                     for (int i = 0; i < _ds.Tables[0].Rows.Count; i++)
@@ -44,13 +41,10 @@ namespace MVC_Crud.Service
                     }
                 }
             }
-
             return (List<RoleModel>)getRoleList;
         }
-
         public void InsertRole(RoleModel model)
         {
-
             using (SqlConnection con = new SqlConnection(connection))
             {
                 con.Open();
@@ -61,14 +55,11 @@ namespace MVC_Crud.Service
                 cmd.Parameters.AddWithValue("@controller", model.Controller);
                 cmd.Parameters.AddWithValue("@createdby", model.CreatedBy);
                 cmd.ExecuteNonQuery();
-
             }
         }
-
         public RoleModel GetEditById(int RoleId)
         {
             RoleModel model = new RoleModel();
-
             using (SqlConnection con = new SqlConnection(connection))
             {
                 con.Open();
@@ -85,11 +76,9 @@ namespace MVC_Crud.Service
                     model.RoleName = Convert.ToString(_ds.Tables[0].Rows[0]["RoleName"]);
                     model.Controller = Convert.ToString(_ds.Tables[0].Rows[0]["Controller"]);
                 }
-
             }
             return model;
         }
-
         public void UpdadteRole(RoleModel model)
         {
             using (SqlConnection con = new SqlConnection(connection))
@@ -104,9 +93,7 @@ namespace MVC_Crud.Service
                 cmd.Parameters.AddWithValue("roleId", model.RoleId);
                 cmd.ExecuteNonQuery();
             }
-
         }
-
         public void DeleteRole(int RoleId)
         {
             using (SqlConnection con = new SqlConnection(connection))
@@ -117,11 +104,7 @@ namespace MVC_Crud.Service
                 cmd.Parameters.AddWithValue("@mode", "DeleteRole");
                 cmd.Parameters.AddWithValue("@roleId", RoleId);
                 cmd.ExecuteNonQuery();
-
             }
-
         }
-
-
     }
 }

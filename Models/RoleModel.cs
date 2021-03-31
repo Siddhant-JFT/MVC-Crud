@@ -9,31 +9,23 @@ namespace MVC_Crud.Models
     public class RoleModel
     {
         public int RoleId { get; set; }
-
         [Required]
         [Display (Name="Role Name")]
         public string RoleName { get; set; }
-
         [Required]
         [Display(Name = "Controller Name")]
         public string Controller { get; set; }
-
         [Required]
         [Display(Name = "Created By")]
         public string CreatedBy { get; set; }
-
         [Required]
-        [Display(Name = "Creation Date")]
+        [Display(Name = "Created On")]
         public string CreationDate { get; set; }
-
+        [Display(Name = "Modified On")]
         [Required]
-        [Display(Name = "Modification Date")]
         public string ModificationDate { get; set; }
-
         [Required]
         [Display(Name = "Modified By")]
         public string ModifiedBy { get; set; }
-
-
     }
 }

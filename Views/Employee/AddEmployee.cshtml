@@ -1,16 +1,11 @@
 ﻿@model MVC_Crud.Models.EmployeesModel
-
 @{
     ViewBag.Title = "AddEmployee";
 }
-
 <h2>AddEmployee</h2>
-
-
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
-    
     <div class="form-horizontal">
         <h4>EmployeeModel</h4>
         <hr />
@@ -19,38 +14,30 @@
             @Html.LabelFor(model => model.EmpName, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.EmpName, new { htmlAttributes = new { @class = "form-control" } })
-
                 @Html.ValidationMessageFor(model => model.EmpName, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.EmpAge, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.EmpAge, new { htmlAttributes = new { @class = "form-control" } })
-
                 @Html.ValidationMessageFor(model => model.EmpAge, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.EmailId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.EmailId, new { htmlAttributes = new { @class = "form-control" } })
-
                 @Html.ValidationMessageFor(model => model.EmailId, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.MobileNo, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.MobileNo, new { htmlAttributes = new { @class = "form-control" } })
-
                 @Html.ValidationMessageFor(model => model.MobileNo, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" />
@@ -58,13 +45,9 @@
         </div>
     </div>
 }
-
 <div>
     @Html.ActionLink("Back to List", "List")
 </div>
-
 @section Scripts {
-
     @Scripts.Render("~/bundles/jqueryval")
-
 }

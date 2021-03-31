@@ -5,7 +5,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MVC_Crud.Service;
-
 namespace MVC_Crud.Controllers
 {
     public class LoginController : Controller
@@ -15,12 +14,10 @@ namespace MVC_Crud.Controllers
         {
             return View();
         }
-
         [HttpPost]
         public ActionResult Login(UserModel user)
         {
             LoginManagement login = new LoginManagement();
-
             if (login.LoginValidation(user))
             {
                 System.Web.HttpContext.Current.Application.Lock();
@@ -32,7 +29,6 @@ namespace MVC_Crud.Controllers
             {
                 return View();
             }
-
         }
     }
 }
